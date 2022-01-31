@@ -19,6 +19,11 @@
 
         <ul class="navbar-nav ms-auto">
           <!-- Authenticated -->
+          <li v-if="user">
+            <router-link :to="{name: 'todo'}" class="nav-link text-dark">
+              TODO!
+            </router-link>
+          </li>
           <li v-if="user" class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-dark"
                href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
