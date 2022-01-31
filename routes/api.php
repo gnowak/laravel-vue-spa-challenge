@@ -9,6 +9,8 @@ use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\Settings\PasswordController;
 use App\Http\Controllers\Settings\ProfileController;
+use App\Http\Controllers\Note\NoteController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +31,13 @@ Route::group(['middleware' => 'auth:api'], function () {
 
     Route::patch('settings/profile', [ProfileController::class, 'update']);
     Route::patch('settings/password', [PasswordController::class, 'update']);
+
+    Route::get('note', [NoteController::class, 'index']);
+    Route::get('note/{note}', [NoteController::class, 'show']);
+    Route::post('note', [NoteController::class, 'store']);
+    Route::put('note/{note}', [NoteController::class, 'update']);
+    Route::delete('note/{note}', [NoteController::class, 'delete']);
+ 
 });
 
 Route::group(['middleware' => 'guest:api'], function () {
